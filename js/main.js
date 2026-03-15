@@ -1,5 +1,46 @@
 // Main JavaScript for Chinese Character Tattoo Shop
 
+// Product Search Functionality
+function initProductSearch() {
+    const searchInput = document.getElementById('product-search');
+    if (!searchInput) return;
+    
+    searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase().trim();
+        const productCards = document.querySelectorAll('.product-card');
+        
+        productCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const desc = card.querySelector('.product-desc').textContent.toLowerCase();
+            const matches = title.includes(searchTerm) || desc.includes(searchTerm);
+            
+            if (searchTerm === '' || matches) {
+                card.style.display = 'block';
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+            } else {
+                card.style.display = 'none';
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.8)';
+            }
+        });
+        
+        // Update search result count
+        const visibleCount = Array.from(productCards).filter(card => 
+            card.style.display !== 'none'
+        ).length;
+        
+        const resultText = document.getElementById('search-result-count');
+        if (resultText) {
+            if (searchTerm === '') {
+                resultText.textContent = '';
+            } else {
+                resultText.textContent = `${visibleCount} design${visibleCount !== 1 ? 's' : ''} found`;
+            }
+        }
+    });
+}
+
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -16,7 +57,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Initialize PayPal buttons when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🎨 Chinese Character Tattoo Shop loaded');
+    console.log('🎨 Oriental Symbols Tattoo Shop loaded');
+    
+    // Initialize search functionality
+    initProductSearch();
     
     // PayPal buttons are initialized by the SDK automatically
     // based on the hosted button IDs in the HTML
@@ -71,6 +115,41 @@ document.querySelectorAll('.product-card, .feature, .faq-item').forEach(el => {
     observer.observe(el);
 });
 
+// FAQ Accordion Functionality
+function initFAQAccordion() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const faqItem = this.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = this.querySelector('.faq-icon');
+            
+            // Toggle current item
+            const isOpen = faqItem.classList.contains('active');
+            
+            // Close all other items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-answer').style.maxHeight = '0';
+                item.querySelector('.faq-icon').textContent = '+';
+            });
+            
+            // Open clicked item if it wasn't open
+            if (!isOpen) {
+                faqItem.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.textContent = '−';
+            }
+        });
+    });
+}
+
+// Initialize FAQ accordion when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    initFAQAccordion();
+});
+
 // Console message for developers
-console.log('%c🎨 Chinese Character Tattoo Designs', 'font-size: 20px; font-weight: bold; color: #e94560;');
+console.log('%c🎨 Oriental Symbols Tattoo Designs', 'font-size: 20px; font-weight: bold; color: #e94560;');
 console.log('%cBuilt with ❤️ for authentic cultural expression', 'font-size: 12px; color: #666;');

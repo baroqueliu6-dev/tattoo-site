@@ -62,7 +62,18 @@
             <h2>Our Designs</h2>
             <p class="section-subtitle">Choose your character. Each purchase includes PNG (300 DPI) + SVG vector files.</p>
             
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="product-search" class="search-input" placeholder="Search designs (e.g., Love, Courage, Freedom, Dream)...">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </div>
+            
             <div class="products-grid">
+                <div id="search-result-count"></div>
+                
                 <!-- Product 1: 愛 (Love) -->
                 <div class="product-card" data-product="love">
                     <div class="product-image">
@@ -177,28 +188,58 @@
             <h2>Frequently Asked Questions</h2>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <h3>What files do I receive?</h3>
-                    <p>You'll receive a ZIP file containing: 300 DPI PNG (transparent background), SVG vector file, PDF cultural guide, and stroke order diagram.</p>
+                    <button class="faq-question">
+                        <h3>What files do I receive?</h3>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You'll receive a ZIP file containing: 300 DPI PNG (transparent background), SVG vector file, PDF cultural guide, and stroke order diagram.</p>
+                    </div>
                 </div>
                 <div class="faq-item">
-                    <h3>Can I use this for commercial purposes?</h3>
-                    <p>Yes! Your purchase includes a license to use the design for your personal tattoo. If you're a tattoo artist wanting to use this for client work, please contact us for a commercial license.</p>
+                    <button class="faq-question">
+                        <h3>Can I use this for commercial purposes?</h3>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Your purchase includes a license to use the design for your personal tattoo. If you're a tattoo artist wanting to use this for client work, please contact us for a commercial license.</p>
+                    </div>
                 </div>
                 <div class="faq-item">
-                    <h3>How do I receive the files?</h3>
-                    <p>After payment, you'll receive an email with a download link within 5 minutes. Check your spam folder if you don't see it.</p>
+                    <button class="faq-question">
+                        <h3>How do I receive the files?</h3>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>After payment, you'll receive an email with a download link within 5 minutes. Check your spam folder if you don't see it.</p>
+                    </div>
                 </div>
                 <div class="faq-item">
-                    <h3>Can I get a custom character?</h3>
-                    <p>Yes! We offer custom design services. Contact us at contact@13801380.site with your desired word or phrase, and we'll provide a quote (starting at $50).</p>
+                    <button class="faq-question">
+                        <h3>Can I get a custom character?</h3>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We offer custom design services. Contact us at contact@13801380.site with your desired word or phrase, and we'll provide a quote (starting at $50).</p>
+                    </div>
                 </div>
                 <div class="faq-item">
-                    <h3>What if I don't like the design?</h3>
-                    <p>Due to the digital nature of our products, we don't offer refunds. However, we're happy to answer any questions before you purchase to ensure you're making the right choice.</p>
+                    <button class="faq-question">
+                        <h3>What if I don't like the design?</h3>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Due to the digital nature of our products, we don't offer refunds. However, we're happy to answer any questions before you purchase to ensure you're making the right choice.</p>
+                    </div>
                 </div>
                 <div class="faq-item">
-                    <h3>Is my payment secure?</h3>
-                    <p>Absolutely. We use PayPal for all transactions. Your card details are never stored on our servers.</p>
+                    <button class="faq-question">
+                        <h3>Is my payment secure?</h3>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. We use PayPal for all transactions. Your card details are never stored on our servers.</p>
+                    </div>
                 </div>
             </div>
         </div>

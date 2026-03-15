@@ -261,6 +261,26 @@ a {
     min-height: 50px;
 }
 
+/* Product Price - Sale Styling */
+.product-price {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1rem;
+}
+
+.sale-price {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 /* About Section */
 .about {
     padding: 5rem 0;

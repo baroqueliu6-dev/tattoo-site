@@ -54,6 +54,92 @@ git push origin main
 
 ---
 
+## 🛒 Gumroad 集成流程（2026-03-18 更新）
+
+### 创建 Gumroad 产品
+1. 访问 `https://gumroad.com`（已自动登录）
+2. 点 "Create new product" 或访问 `/products/new`
+3. 填写产品信息：
+   - **Name**: 产品名（如 "Love - Oriental Symbol Tattoo Design"）
+   - **Price**: 价格（如 $9.99）
+   - **URL**: 自定义链接（如 `love-tattoo-design`）
+   - **Description**: 产品描述（简短、突出卖点）
+4. 创建产品版本（Version）：
+   - 点 "Add version"
+   - 填写版本名称（如 "Love Design - PNG + SVG + Guide"）
+5. 上传产品文件（需要手动操作）：
+   - 点 "Upload your files"
+   - 上传 PNG、SVG、PDF 等文件
+6. 上传封面图和缩略图（需要手动操作）：
+   - Cover: 横图（1280x720px）
+   - Thumbnail: 方图（600x600px）
+7. 连接支付方式（需要手动操作）：
+   - 点 "Publish and continue"
+   - 绑定 PayPal 或银行账户
+8. 发布产品，获取产品链接：
+   - 格式：`https://baroquelium.gumroad.com/l/产品名`
+
+### Gumroad 产品链接汇总
+```
+1. Love:    https://baroquelium.gumroad.com/l/love-tattoo-design
+2. Joy:     https://baroquelium.gumroad.com/l/joy-tattoo-design
+3. Cool:    https://baroquelium.gumroad.com/l/cool-tattoo-design
+4. Good:    https://baroquelium.gumroad.com/l/good-tattoo-design
+5. Beauty:  https://baroquelium.gumroad.com/l/beauty-tattoo-design
+6. History: https://baroquelium.gumroad.com/l/history-tattoo-design
+```
+
+### 网站集成 Gumroad 链接
+1. 找到产品卡片中的 PayPal 按钮容器
+2. 替换为 Gumroad 购买链接：
+```html
+<a href="https://baroquelium.gumroad.com/l/产品名" 
+   class="btn btn-primary btn-buy" 
+   target="_blank">Buy Now →</a>
+```
+3. 添加 CSS 样式（如需要）：
+```css
+.btn-buy {
+    display: inline-block;
+    text-align: center;
+    padding: 12px 30px;
+    width: 100%;
+    margin-top: 10px;
+}
+```
+4. 提交并推送代码
+5. Vercel 自动部署（无需手动操作）
+
+---
+
+## 🚀 Vercel 部署要点（重要！）
+
+### 自动部署机制
+- **推送到 GitHub 后自动部署**，不需要手动 Redeploy！
+- Vercel 检测到 `main` 分支更新后自动开始部署
+- 部署时间：通常 1-2 分钟
+
+### 检查部署状态
+1. 访问 Vercel 控制台：`https://vercel.com/baroqueliu6-devs-projects/tatoo-shop-2024`
+2. 查看最新部署：
+   - 状态：**Ready** = 成功
+   - 状态：**Building** = 部署中
+   - 状态：**Failed** = 失败（查看 Logs）
+3. 访问预览链接验证：`https://tatoo-shop-2024.vercel.app`
+
+### 如果网站没更新
+1. **等几分钟** - Vercel 部署需要时间
+2. **强制刷新** - Cmd+Shift+R（Mac）或 Ctrl+Shift+R（Windows）
+3. **检查 Vercel 部署状态** - 确认是 Ready 状态
+4. **清除 DNS 缓存** - 域名更新可能需要 5-10 分钟
+
+### 不需要手动 Redeploy
+- Vercel 会自动检测 GitHub 推送
+- 除非部署失败，否则不需要手动操作
+- 找不到 Redeploy 按钮是正常的，因为不需要！
+
+---
+
 ## 🧹 文件清理规则
 
 **保留什么:**

@@ -94,6 +94,25 @@ a {
     animation: fadeInUp 0.8s ease 0.2s backwards;
 }
 
+/* Trust Badges */
+.trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.trust-badge {
+    font-size: 0.9rem;
+    color: var(--white);
+    opacity: 0.9;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    animation: fadeInUp 0.8s ease 0.4s backwards;
+}
+
 /* Hero Carousel */
 .hero-carousel {
     max-width: 500px;
@@ -432,6 +451,16 @@ a {
     color: var(--accent-color);
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+.trust-note {
+    font-size: 0.85rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 4px;
 }
 
 /* Search Bar */
